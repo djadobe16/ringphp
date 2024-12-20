@@ -38,7 +38,7 @@ class CompletedFutureValue implements FutureInterface
         return $this->result;
     }
 
-    public function cancel() {}
+    public function cancel():void {}
 
     /**
      * @return PromiseInterface
