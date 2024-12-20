@@ -1,7 +1,6 @@
 <?php
 namespace GuzzleHttp\Ring\Future;
 
-use React\Promise\FulfilledPromise;
 use React\Promise\RejectedPromise;
 use React\Promise\PromiseInterface;
 
@@ -45,10 +44,8 @@ class CompletedFutureValue implements FutureInterface
      */
     public function promise()
     {
-        if (!$this->cachedPromise) {
-            $this->cachedPromise = $this->error
-                ? new RejectedPromise($this->error)
-                : new FulfilledPromise($this->result);
+        if (!$this->cachedPromise && $this->error) {
+            $this->cachedPromise = new RejectedPromise($this->error);
         }
 
         return $this->cachedPromise;
