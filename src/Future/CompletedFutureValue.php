@@ -59,9 +59,28 @@ class CompletedFutureValue implements FutureInterface
      */
     public function then(
         ?callable $onFulfilled = null,
-        ?callable $onRejected = null,
-        ?callable $onProgress = null
-    ) {
-        return $this->promise()->then($onFulfilled, $onRejected, $onProgress);
+        ?callable $onRejected = null
+    ):PromiseInterface {
+        return $this->promise()->then($onFulfilled, $onRejected);
+    }
+
+    public function catch(callable $onRejected): PromiseInterface
+    {
+        // TODO: Implement catch() method.
+    }
+
+    public function finally(callable $onFulfilledOrRejected): PromiseInterface
+    {
+        // TODO: Implement finally() method.
+    }
+
+    public function otherwise(callable $onRejected): PromiseInterface
+    {
+        // TODO: Implement otherwise() method.
+    }
+
+    public function always(callable $onFulfilledOrRejected): PromiseInterface
+    {
+        // TODO: Implement always() method.
     }
 }
