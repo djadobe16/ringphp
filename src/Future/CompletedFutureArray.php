@@ -1,19 +1,20 @@
 <?php
 namespace GuzzleHttp\Ring\Future;
 
+use React\Promise\PromiseInterface;
+
 /**
  * Represents a future array that has been completed successfully.
  */
-class CompletedFutureArray extends CompletedFutureValue implements FutureArrayInterface
+class CompletedFutureArray implements FutureArrayInterface
 {
     public function __construct(array $result)
     {
-        parent::__construct($result);
     }
 
     #[\ReturnTypeWillChange]
     /**
-     * @return bool 
+     * @return bool
      */
     public function offsetExists($offset)
     {
@@ -22,7 +23,7 @@ class CompletedFutureArray extends CompletedFutureValue implements FutureArrayIn
 
     #[\ReturnTypeWillChange]
     /**
-     * @return mixed 
+     * @return mixed
      */
     public function offsetGet($offset)
     {
@@ -31,7 +32,7 @@ class CompletedFutureArray extends CompletedFutureValue implements FutureArrayIn
 
     #[\ReturnTypeWillChange]
     /**
-     * @return void 
+     * @return void
      */
     public function offsetSet($offset, $value)
     {
@@ -40,7 +41,7 @@ class CompletedFutureArray extends CompletedFutureValue implements FutureArrayIn
 
     #[\ReturnTypeWillChange]
     /**
-     * @return void 
+     * @return void
      */
     public function offsetUnset($offset)
     {
@@ -49,7 +50,7 @@ class CompletedFutureArray extends CompletedFutureValue implements FutureArrayIn
 
     #[\ReturnTypeWillChange]
     /**
-     * @return int 
+     * @return int
      */
     public function count()
     {
@@ -58,10 +59,45 @@ class CompletedFutureArray extends CompletedFutureValue implements FutureArrayIn
 
     #[\ReturnTypeWillChange]
     /**
-     * @return \ArrayIterator 
+     * @return \ArrayIterator
      */
     public function getIterator()
     {
         return new \ArrayIterator($this->result);
+    }
+
+    public function wait()
+    {
+        // TODO: Implement wait() method.
+    }
+
+    public function cancel(): void
+    {
+        // TODO: Implement cancel() method.
+    }
+
+    public function then(?callable $onFulfilled = null, ?callable $onRejected = null): PromiseInterface
+    {
+        // TODO: Implement then() method.
+    }
+
+    public function catch(callable $onRejected): PromiseInterface
+    {
+        // TODO: Implement catch() method.
+    }
+
+    public function finally(callable $onFulfilledOrRejected): PromiseInterface
+    {
+        // TODO: Implement finally() method.
+    }
+
+    public function otherwise(callable $onRejected): PromiseInterface
+    {
+        // TODO: Implement otherwise() method.
+    }
+
+    public function always(callable $onFulfilledOrRejected): PromiseInterface
+    {
+        // TODO: Implement always() method.
     }
 }

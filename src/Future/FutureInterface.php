@@ -2,7 +2,6 @@
 namespace GuzzleHttp\Ring\Future;
 
 use React\Promise\PromiseInterface;
-use React\Promise\PromisorInterface;
 
 /**
  * Represents the result of a computation that may not have completed yet.
