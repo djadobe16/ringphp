@@ -1,15 +1,14 @@
 <?php
 namespace GuzzleHttp\Ring\Future;
 
-use React\Promise\PromiseInterface;
-
 /**
  * Represents a future array that has been completed successfully.
  */
-class CompletedFutureArray implements FutureArrayInterface
+class CompletedFutureArray extends CompletedFutureValue implements FutureArrayInterface
 {
     public function __construct(array $result)
     {
+        parent::__construct($result);
     }
 
     #[\ReturnTypeWillChange]
@@ -64,40 +63,5 @@ class CompletedFutureArray implements FutureArrayInterface
     public function getIterator()
     {
         return new \ArrayIterator($this->result);
-    }
-
-    public function wait()
-    {
-        // TODO: Implement wait() method.
-    }
-
-    public function cancel(): void
-    {
-        // TODO: Implement cancel() method.
-    }
-
-    public function then(?callable $onFulfilled = null, ?callable $onRejected = null): PromiseInterface
-    {
-        // TODO: Implement then() method.
-    }
-
-    public function catch(callable $onRejected): PromiseInterface
-    {
-        // TODO: Implement catch() method.
-    }
-
-    public function finally(callable $onFulfilledOrRejected): PromiseInterface
-    {
-        // TODO: Implement finally() method.
-    }
-
-    public function otherwise(callable $onRejected): PromiseInterface
-    {
-        // TODO: Implement otherwise() method.
-    }
-
-    public function always(callable $onFulfilledOrRejected): PromiseInterface
-    {
-        // TODO: Implement always() method.
     }
 }
