@@ -82,10 +82,9 @@ trait BaseFutureTrait
      */
     public function then(
         ?callable $onFulfilled = null,
-        ?callable $onRejected = null,
-        ?callable $onProgress = null
+        ?callable $onRejected = null
     ) {
-        return $this->wrappedPromise->then($onFulfilled, $onRejected, $onProgress);
+        return $this->wrappedPromise->then($onFulfilled, $onRejected);
     }
 
     public function cancel():void
