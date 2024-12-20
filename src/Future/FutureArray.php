@@ -1,6 +1,8 @@
 <?php
 namespace GuzzleHttp\Ring\Future;
 
+use React\Promise\PromiseInterface;
+
 /**
  * Represents a future array value that when dereferenced returns an array.
  */
@@ -10,8 +12,8 @@ class FutureArray implements FutureArrayInterface
     use MagicFutureTrait;
 
     #[\ReturnTypeWillChange]
-    /** 
-     * @return bool 
+    /**
+     * @return bool
      */
     public function offsetExists($offset)
     {
@@ -19,8 +21,8 @@ class FutureArray implements FutureArrayInterface
     }
 
     #[\ReturnTypeWillChange]
-    /** 
-     * @return mixed 
+    /**
+     * @return mixed
      */
     public function offsetGet($offset)
     {
@@ -28,8 +30,8 @@ class FutureArray implements FutureArrayInterface
     }
 
     #[\ReturnTypeWillChange]
-    /** 
-     * @return void 
+    /**
+     * @return void
      */
     public function offsetSet($offset, $value)
     {
@@ -37,8 +39,8 @@ class FutureArray implements FutureArrayInterface
     }
 
     #[\ReturnTypeWillChange]
-    /** 
-     * @return void 
+    /**
+     * @return void
      */
     public function offsetUnset($offset)
     {
@@ -46,8 +48,8 @@ class FutureArray implements FutureArrayInterface
     }
 
     #[\ReturnTypeWillChange]
-    /** 
-     * @return int 
+    /**
+     * @return int
      */
     public function count()
     {
@@ -55,11 +57,31 @@ class FutureArray implements FutureArrayInterface
     }
 
     #[\ReturnTypeWillChange]
-    /** 
-     * @return \ArrayIterator 
+    /**
+     * @return \ArrayIterator
      */
     public function getIterator()
     {
         return new \ArrayIterator($this->_value);
+    }
+
+    public function catch(callable $onRejected): PromiseInterface
+    {
+        // TODO: Implement catch() method.
+    }
+
+    public function finally(callable $onFulfilledOrRejected): PromiseInterface
+    {
+        // TODO: Implement finally() method.
+    }
+
+    public function otherwise(callable $onRejected): PromiseInterface
+    {
+        // TODO: Implement otherwise() method.
+    }
+
+    public function always(callable $onFulfilledOrRejected): PromiseInterface
+    {
+        // TODO: Implement always() method.
     }
 }
