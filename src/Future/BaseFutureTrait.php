@@ -83,7 +83,7 @@ trait BaseFutureTrait
     public function then(
         ?callable $onFulfilled = null,
         ?callable $onRejected = null
-    ) {
+    ):PromiseInterface {
         return $this->wrappedPromise->then($onFulfilled, $onRejected);
     }
 
